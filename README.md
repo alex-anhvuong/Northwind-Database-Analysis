@@ -23,7 +23,7 @@ Image
 Here are the queries and results used
 
 #### 1. Total revenue of the business
-```
+```SQL
 SELECT ROUND(SUM(UnitPrice * Quantity), 2) AS TotalRevenue
 FROM OrderDetails
 ```
@@ -32,8 +32,34 @@ FROM OrderDetails
 |:----|
 |1354458.59|
 
-2. Problem
-Query
+2. Create a view with total revenues per customer
+```SQL
+CREATE VIEW CustomerTotalRevenue AS
+SELECT 
+    o.CustomerID,
+    c.CompanyName,
+    ROUND(SUM(od.UnitPrice * od.Quantity), 2) AS TotalRevenue
+FROM Orders o
+INNER JOIN OrderDetails od ON o.OrderID = od.OrderID
+INNER JOIN Customers c ON o.CustomerID = c.CustomerID
+GROUP BY o.CustomerID, c.CompanyName
+ORDER BY TotalRevenue DESC;
+
+SELECT * FROM `CustomerTotalRevenue`;
+```
+
+|CustomerID|CompanyName|TotalRevenue|
+|:----|:----|:----|
+|QUICK|QUICK-Stop|117483.39|
+|SAVEA|Save-a-lot Markets|115673.39|
+|ERNSH|Ernst Handel|113236.68|
+|HUNGO|Hungry Owl All-Night Grocers|57317.39|
+|RATTC|Rattlesnake Canyon Grocery|52245.90|
+|HANAR|Hanari Carnes|34101.15|
+|FOLKO|Folk och f HB|32555.55|
+|MEREP|Mre Paillarde|32203.90|
+|KOENE|Kniglich Essen|31745.75|
+|QUEEN|Queen Cozinha|30226.10|
 
 3. Problem
 Query
