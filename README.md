@@ -12,9 +12,9 @@ It demonstrates key data analytical skills such as:
 - Data visualisation
 
 ### Key findings
-1. Total revenue is xyz
-2. Top 10 customers by revenue have revenue > xyz. There are xyz medium-large customers (sales > xyz) 
-3. Top 10 product categories. The most popular categories are xyz.
+> 1. :moneybag: Total revenue of the company is $1,354,458.59
+> 2. :business_suit_levitating: Top 10 customers by revenue have revenue > $30k. There are 41 medium-large customers (revenue > $10k) 
+> 3. :coffee: Top 10 product categories. The most popular categories are beverages, dairy products, meat/poultry.
 
 ### Analysis & implementation
 A visualisation of the analysis is also available at xyz.
