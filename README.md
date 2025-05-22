@@ -22,8 +22,15 @@ Image
 
 Here are the queries and results used
 
-1. Problem
-Query
+#### 1. Total revenue of the business
+```
+SELECT ROUND(SUM(UnitPrice * Quantity), 2) AS TotalRevenue
+FROM OrderDetails
+```
+
+|TotalRevenue|
+|:----|
+|1354458.59|
 
 2. Problem
 Query
