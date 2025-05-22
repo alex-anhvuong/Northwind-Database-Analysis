@@ -89,6 +89,51 @@ SELECT * FROM `RevenueByProductType` LIMIT 10;
 |Grains/Cereals|100726.80|
 
 
-4. Data procedure and views available
+#### 4. Other available data procedure and views
+- A view to list products with their supplier and category names
+- A view to show customers who haven’t placed any orders
+
+```SQL
+CREATE VIEW ProductDetails AS
+SELECT 
+    p.ProductID,
+    p.ProductName,
+    s.CompanyName AS SupplierName,
+    c.CategoryName
+FROM Products p
+INNER JOIN Suppliers s ON p.SupplierID = s.SupplierID
+INNER JOIN Categories c ON p.CategoryID = c.CategoryID;
+
+CREATE VIEW CustomersWithoutOrders AS
+SELECT 
+    c.CustomerID,
+    c.CompanyName,
+    c.ContactName,
+    c.City,
+    c.Country
+FROM Customers c
+LEFT JOIN Orders o ON c.CustomerID = o.CustomerID
+WHERE o.CustomerID IS NULL;
+```
+
+|ProductID|ProductName|SupplierName|CategoryName|
+|:----|:----|:----|:----|
+|1|Chai|Exotic Liquids|Beverages|
+|2|Chang|Exotic Liquids|Beverages|
+|24|Guaran Fantstica|Refrescos Americanas LTDA|Beverages|
+|34|Sasquatch Ale|Bigfoot Breweries|Beverages|
+|35|Steeleye Stout|Bigfoot Breweries|Beverages|
+|38|Cte de Blaye|Aux joyeux ecclsiastiques|Beverages|
+|39|Chartreuse verte|Aux joyeux ecclsiastiques|Beverages|
+|43|Ipoh Coffee|Leka Trading|Beverages|
+|67|Laughing Lumberjack Lager|Bigfoot Breweries|Beverages|
+|70|Outback Lager|Pavlova| Ltd.|Beverages|
+
+|CustomerID|CompanyName|ContactName|City|Country|
+|:----|:----|:----|:----|:----|
+|FISSA|FISSA Fabrica Inter. Salchichas S.A.|Diego Roel|Madrid|Spain|
+|PARIS|Paris spcialits|Marie Bertrand|Paris|France|
+|Val2 |IT|Val2|NULL|NULL|
+|VALON|IT|Valon Hoti|NULL|NULL|
 
 ### Links and References
