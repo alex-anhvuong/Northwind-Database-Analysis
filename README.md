@@ -32,7 +32,7 @@ FROM OrderDetails
 |:----|
 |1354458.59|
 
-2. Create a view with total revenues per customer
+#### 2. Create a view with total revenues per customer
 ```SQL
 CREATE VIEW CustomerTotalRevenue AS
 SELECT 
@@ -45,7 +45,7 @@ INNER JOIN Customers c ON o.CustomerID = c.CustomerID
 GROUP BY o.CustomerID, c.CompanyName
 ORDER BY TotalRevenue DESC;
 
-SELECT * FROM `CustomerTotalRevenue`;
+SELECT * FROM `CustomerTotalRevenue` LIMIT 10;
 ```
 
 |CustomerID|CompanyName|TotalRevenue|
@@ -61,8 +61,33 @@ SELECT * FROM `CustomerTotalRevenue`;
 |KOENE|Kniglich Essen|31745.75|
 |QUEEN|Queen Cozinha|30226.10|
 
-3. Problem
-Query
+#### 3. Top revenue by product categories
+```SQL
+CREATE VIEW RevenueByProductType AS
+SELECT 
+    c.CategoryName,
+    ROUND(SUM(od.UnitPrice * od.Quantity), 2) AS TotalRevenue
+FROM Orders o
+INNER JOIN OrderDetails od ON o.OrderID = od.OrderID
+INNER JOIN Products p ON od.ProductID = p.ProductID
+INNER JOIN Categories c ON p.CategoryID = c.CategoryID
+GROUP BY c.CategoryName
+ORDER BY TotalRevenue DESC;
+
+SELECT * FROM `RevenueByProductType` LIMIT 10;
+```
+
+|CategoryName|TotalRevenue|
+|:----|:----|
+|Beverages|286526.95|
+|Dairy Products|251330.50|
+|Meat/Poultry|178188.80|
+|Confections|177099.10|
+|Seafood|141623.09|
+|Condiments|113694.75|
+|Produce|105268.60|
+|Grains/Cereals|100726.80|
+
 
 4. Data procedure and views available
 
