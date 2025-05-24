@@ -17,8 +17,8 @@ It demonstrates key data analytical skills such as:
 > 3. :coffee: Top 10 product categories. The most popular categories are **beverages, dairy products, meat/poultry**.
 
 ### Analysis & implementation
-A visualisation of the analysis is also available at xyz.
-Image
+A visualisation of the analysis is also available at [xyz](https://app.powerbi.com/view?r=eyJrIjoiMjZhYjk1ZWYtMGQzNS00YTU5LWI2MzctMDQ2OWZhZmM1NzEyIiwidCI6Ijc4NGU5YWE4LWI4ZjQtNGFhOS1iMTgzLTE5ODExNjE5YjllZSJ9).
+![image](https://github.com/user-attachments/assets/8c33a0de-cd58-4dea-941f-ea669077fe9f)
 
 Here are the queries and results used
 
