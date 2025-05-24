@@ -137,3 +137,5 @@ WHERE o.CustomerID IS NULL;
 |VALON|IT|Valon Hoti|NULL|NULL|
 
 ### Links and References
+1. Northwind dataset: https://docs.yugabyte.com/preview/sample-data/northwind/
+2. Power BI theme: https://community.fabric.microsoft.com/t5/Themes-Gallery/Tumble-Road-Red-Blue-Theme/td-p/144793
